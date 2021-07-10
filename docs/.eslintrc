@@ -1,0 +1,24 @@
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": ["tsconfig.json", "tests/tsconfig.json"]
+  },
+  "plugins": ["@typescript-eslint", "only-warn"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    "prettier"
+  ],
+  "overrides": [],
+  "rules": {
+    // They are great actually
+    "@typescript-eslint/no-namespace": "off",
+    // TypeScript makes these safe & effective
+    "no-case-declarations": "off",
+    // Same approach used by TypeScript noUnusedLocals
+    "@typescript-eslint/no-unused-vars": ["warn", { "varsIgnorePattern": "^_", "argsIgnorePattern": "^_" }]
+  }
+}
