@@ -120,6 +120,7 @@ it('When bundled custom scalars are used the project type checks and generates e
             id                String   @id
             someJsonField     Json
             someDateTimeField DateTime
+            someDecimalField  Decimal
             someBytesField    Bytes
             someBigIntField   BigInt
             someEnumA         SomeEnumA
@@ -143,7 +144,7 @@ it('When bundled custom scalars are used the project type checks and generates e
     {
       filePath: `prisma/seed.ts`,
       content: dedent/*ts*/ `
-        import { PrismaClient } from '@prisma/client'
+        import { PrismaClient, Prisma } from '@prisma/client'
 
         main()
 
@@ -155,6 +156,7 @@ it('When bundled custom scalars are used the project type checks and generates e
             data: {
               id: 'foo1',
               someDateTimeField: new Date("2021-05-10T20:42:46.609Z"),
+              someDecimalField: new Prisma.Decimal(24.454545),
               someBytesField: Buffer.from([]),
               someJsonField: {},
               someBigIntField: BigInt(9007199254740991),
@@ -214,11 +216,13 @@ it('When bundled custom scalars are used the project type checks and generates e
               t.json('JsonManually')
               t.dateTime('DateTimeManually')
               t.bytes('BytesManually')
+              t.decimal('DecimalManually')
               t.bigInt('BigIntManually')
               t.field(Foo.someBigIntField)
               t.field(Foo.someJsonField)
               t.field(Foo.someDateTimeField)
               t.field(Foo.someBytesField)
+              t.field(Foo.someDecimalField)
             },
           }),
         ]
@@ -380,11 +384,13 @@ it('When bundled custom scalars are used the project type checks and generates e
           JsonManually
           DateTimeManually
           BytesManually
+          DecimalManually
           BigIntManually
           someEnumA
           someJsonField
           someDateTimeField
           someBytesField
+          someDecimalField
           someBigIntField
         }
       }

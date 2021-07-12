@@ -306,7 +306,7 @@ export function fieldTypeToGraphQLType(
           return 'Bytes'
         }
         case 'Decimal': {
-          return StandardGraphQLScalarTypes.String
+          return 'Decimal'
         }
         default: {
           return allCasesHandled(typeName)

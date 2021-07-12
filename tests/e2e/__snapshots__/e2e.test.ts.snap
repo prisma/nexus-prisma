@@ -8,6 +8,7 @@ Object {
         "BigIntManually": null,
         "BytesManually": null,
         "DateTimeManually": null,
+        "DecimalManually": null,
         "JsonManually": null,
         "someBigIntField": "9007199254740991",
         "someBytesField": Object {
@@ -15,6 +16,7 @@ Object {
           "type": "Buffer",
         },
         "someDateTimeField": "2021-05-10T20:42:46.609Z",
+        "someDecimalField": "24.454545",
         "someEnumA": "alpha",
         "someJsonField": Object {},
       },
@@ -46,14 +48,19 @@ A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the \`da
 \\"\\"\\"
 scalar DateTime
 
+\\"\\"\\"An arbitrary-precision Decimal type\\"\\"\\"
+scalar Decimal
+
 type Foo {
   BigIntManually: BigInt
   BytesManually: Bytes
   DateTimeManually: DateTime
+  DecimalManually: Decimal
   JsonManually: Json
   someBigIntField: BigInt!
   someBytesField: Bytes!
   someDateTimeField: DateTime!
+  someDecimalField: Decimal!
   someEnumA: SomeEnumA
   someJsonField: Json!
 }
@@ -99,6 +106,10 @@ declare global {
      */
     dateTime<FieldName extends string>(fieldName: FieldName, opts?: core.CommonInputFieldConfig<TypeName, FieldName>): void // \\"DateTime\\";
     /**
+     * An arbitrary-precision Decimal type
+     */
+    decimal<FieldName extends string>(fieldName: FieldName, opts?: core.CommonInputFieldConfig<TypeName, FieldName>): void // \\"Decimal\\";
+    /**
      * The \`JSONObject\` scalar type represents JSON objects as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
      */
     json<FieldName extends string>(fieldName: FieldName, opts?: core.CommonInputFieldConfig<TypeName, FieldName>): void // \\"Json\\";
@@ -119,6 +130,10 @@ declare global {
      * A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the \`date-time\` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar.
      */
     dateTime<FieldName extends string>(fieldName: FieldName, ...opts: core.ScalarOutSpread<TypeName, FieldName>): void // \\"DateTime\\";
+    /**
+     * An arbitrary-precision Decimal type
+     */
+    decimal<FieldName extends string>(fieldName: FieldName, ...opts: core.ScalarOutSpread<TypeName, FieldName>): void // \\"Decimal\\";
     /**
      * The \`JSONObject\` scalar type represents JSON objects as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
      */
@@ -147,6 +162,7 @@ export interface NexusGenScalars {
   BigInt: any
   Bytes: any
   DateTime: any
+  Decimal: any
   Json: any
 }
 
@@ -174,10 +190,12 @@ export interface NexusGenFieldTypes {
     BigIntManually: NexusGenScalars['BigInt'] | null; // BigInt
     BytesManually: NexusGenScalars['Bytes'] | null; // Bytes
     DateTimeManually: NexusGenScalars['DateTime'] | null; // DateTime
+    DecimalManually: NexusGenScalars['Decimal'] | null; // Decimal
     JsonManually: NexusGenScalars['Json'] | null; // Json
     someBigIntField: NexusGenScalars['BigInt']; // BigInt!
     someBytesField: NexusGenScalars['Bytes']; // Bytes!
     someDateTimeField: NexusGenScalars['DateTime']; // DateTime!
+    someDecimalField: NexusGenScalars['Decimal']; // Decimal!
     someEnumA: NexusGenEnums['SomeEnumA'] | null; // SomeEnumA
     someJsonField: NexusGenScalars['Json']; // Json!
   }
@@ -194,10 +212,12 @@ export interface NexusGenFieldTypeNames {
     BigIntManually: 'BigInt'
     BytesManually: 'Bytes'
     DateTimeManually: 'DateTime'
+    DecimalManually: 'Decimal'
     JsonManually: 'Json'
     someBigIntField: 'BigInt'
     someBytesField: 'Bytes'
     someDateTimeField: 'DateTime'
+    someDecimalField: 'Decimal'
     someEnumA: 'SomeEnumA'
     someJsonField: 'Json'
   }

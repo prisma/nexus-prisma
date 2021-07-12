@@ -124,7 +124,7 @@ export const schema = makeSchema({
 ##### Shortterm
 
 - [x] ([#59](https://github.com/prisma/nexus-prisma/issues/59)) Support for Prisma Model field type `BigInt`
-- [ ] ([#94](https://github.com/prisma/nexus-prisma/issues/94)) Support for Prisma Model field type `Decimal`
+- [x] ([#94](https://github.com/prisma/nexus-prisma/issues/94)) Support for Prisma Model field type `Decimal`
 - [ ] Improved JSDoc for relation 1:1 & 1:n fields
 
 ##### Midterm

@@ -9,6 +9,7 @@ Array [
   "BigInt",
   "Bytes",
   "DateTime",
+  "Decimal",
   "Json",
   "default",
 ]
@@ -21,6 +22,7 @@ it('scalars can be accessed via a default import', () => {
       "BigInt",
       "Bytes",
       "DateTime",
+      "Decimal",
       "Json",
     ]
   `)
